@@ -1,24 +1,2 @@
-[phases.setup]
-aptPkgs = [
-  "python3",
-  "build-essential",
-  "pkg-config",
-  "libcairo2-dev",
-  "libpango1.0-dev",
-  "libjpeg-dev",
-  "libgif-dev",
-  "librsvg2-dev",
-  "libpixman-1-dev"
-]
-
-[phases.install]
-cmds = ["yarn install"]
-
-[phases.build]
-cmds = [
-  "npx nx build twenty-server",
-  "npx nx build twenty-front"
-]
-
-[start]
-cmd = "npx nx run twenty-server:database:init:prod && npx nx start:prod twenty-server"
+# Use custom Dockerfile instead of Nixpacks auto-detection
+# This is configured to use the Dockerfile in the root directory
