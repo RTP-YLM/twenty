@@ -26,6 +26,9 @@ COPY packages/twenty-server/package.json ./packages/twenty-server/
 COPY packages/twenty-shared/package.json ./packages/twenty-shared/
 COPY packages/twenty-emails/package.json ./packages/twenty-emails/
 
+# Copy patches directory (required for patched dependencies)
+COPY packages/twenty-server/patches ./packages/twenty-server/patches
+
 # Install all dependencies (needed for build)
 RUN yarn workspaces focus twenty-server
 
