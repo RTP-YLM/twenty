@@ -29,14 +29,16 @@ COPY packages/twenty-emails/package.json ./packages/twenty-emails/
 # Copy patches directory (required for patched dependencies)
 COPY packages/twenty-server/patches ./packages/twenty-server/patches
 
-# Install all dependencies (needed for build)
-RUN yarn workspaces focus twenty-server
+# Copy nx configuration first
+COPY nx.json tsconfig.base.json ./
+
+# Install all dependencies
+RUN yarn install --immutable
 
 # Copy source files
 COPY packages/twenty-server ./packages/twenty-server
 COPY packages/twenty-shared ./packages/twenty-shared
 COPY packages/twenty-emails ./packages/twenty-emails
-COPY nx.json tsconfig.base.json ./
 
 # Build the server
 RUN npx nx build twenty-server --skip-nx-cache
