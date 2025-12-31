@@ -33,7 +33,7 @@ COPY packages/twenty-server/patches ./packages/twenty-server/patches
 COPY nx.json tsconfig.base.json ./
 
 # Install all dependencies
-RUN yarn install --immutable
+RUN yarn install
 
 # Copy source files
 COPY packages/twenty-server ./packages/twenty-server
