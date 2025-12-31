@@ -26,8 +26,8 @@ COPY packages/twenty-server/package.json ./packages/twenty-server/
 COPY packages/twenty-shared/package.json ./packages/twenty-shared/
 COPY packages/twenty-emails/package.json ./packages/twenty-emails/
 
-# Install dependencies (production only to reduce size)
-RUN yarn workspaces focus twenty-server --production=false
+# Install all dependencies (needed for build)
+RUN yarn workspaces focus twenty-server
 
 # Copy source files
 COPY packages/twenty-server ./packages/twenty-server
