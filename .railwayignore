@@ -1,0 +1,12 @@
+.git
+.env
+node_modules
+.nx/cache
+packages/twenty-server/.env
+dist
+build
+*.log
+.DS_Store
+coverage
+.vscode
+.idea
